@@ -1,27 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  @apply text-black dark:text-white bg-slate-50;
+}
+
+.global-bg {
+  @apply bg-white dark:bg-slate-900 shadow-md rounded-md;
+}
+
+.custom-bg {
+  @apply bg-[#f0f0f0] dark:bg-slate-800 rounded-md p-5;
+}
+
+.thead-bg {
+  @apply bg-white dark:bg-slate-900 rounded-md py-5;
+}
+
+button {
+  color: #ffffff;
+}
+
+.global-form input,
+.global-form select,
+.global-form textarea,
+.single-form input,
+.single-form select,
+.single-form textarea {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 2px;
+
+  @apply border-2 border-gray-400 dark:border-slate-700 text-black dark:text-white;
+}
+
+.global-form input,
+.global-form select {
+  width: 45%;
+}
+
+.global-form textarea {
+  min-height: 300px;
+}
+
+.global-form::placeholder {
+  color: #595959;
+}
+
+.single-form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-loading {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.animate-loading {
+  animation: scale-loading 5s ease-in-out;
 }
